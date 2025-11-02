@@ -1,9 +1,19 @@
 function minDate(dates) {
-  //write you code here
+  // Convert each date string to a Date object and find the minimum
+  let min = new Date(dates[0]);
+  
+  for (let i = 1; i < dates.length; i++) {
+    let current = new Date(dates[i]);
+    if (current < min) {
+      min = current;
+    }
+  }
+
+  // Return the minimum date in "YYYY/MM/DD" format
+  return min.toISOString().split('T')[0].replace(/-/g, '/');
 }
 
 // Do not change the code
-
 var dates = [
   "2023/03/01",
   "2023/03/02",
